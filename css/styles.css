@@ -7,10 +7,14 @@ h2 {
     text-align: center;
 }
 
-#avgCostByGender {
+#avgCostByGenderline,#avgCostByGenderarea,#avgCostByGenderbar {
     margin: 0 auto;
     width: 960px;
     height: 320px;
+}
+ #dropdownbar,#dropdownarea {
+display:none;
+
 }
 
 .key {

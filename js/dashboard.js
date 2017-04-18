@@ -22,15 +22,31 @@ cacheRef.child('avgCostByGender').limitToLast(recordLimit).once('value', functio
     }
 
     // Let's create the chart
-    avgCostByGender = $('#avgCostByGender').epoch({
+    avgCostByGenderline = $('#avgCostByGenderline').epoch({
         type: 'time.line',
         data: historyData,
-        axes: ['top', 'right', 'button', 'left'],
+        axes: ['top', 'right', 'bottom', 'left'],
         tickets: {time: 200},
         ticks: {time: 9},
         fps: 60
     });
 
+     avgCostByGenderbar = $('#avgCostByGenderbar').epoch({
+        type: 'time.bar',
+        data: historyData,
+        axes: ['top', 'right', 'bottom', 'left'],
+        tickets: {time: 200},
+        ticks: {time: 9},
+        fps: 60
+    });
+avgCostByGenderarea = $('#avgCostByGenderarea').epoch({
+        type: 'time.area',
+        data: historyData,
+        axes: ['top', 'right', 'bottom', 'left'],
+        tickets: {time: 200},
+        ticks: {time: 9},
+        fps: 60
+     });
     // We need at least two Keen.io responses to kick things off, one to prime history and one to kick off poller
     if (historyDataValues.length > 1) startPoller();
 });
@@ -40,7 +56,9 @@ function startPoller() {
         var data = snapshot.val(),
             payload = JSON.parse(data.payload);
 
-        avgCostByGender.push(getResultArray(payload.result, data.timestamp));
+        avgCostByGenderline.push(getResultArray(payload.result, data.timestamp));
+         avgCostByGenderarea.push(getResultArray(payload.result, data.timestamp));
+          avgCostByGenderbar.push(getResultArray(payload.result, data.timestamp));
     });
 }
 
