@@ -8,6 +8,7 @@
  * @param queueRef A Firebase reference to the list of work items
  * @param processingCallback The callback to be called for each work item
  */
+require('./firebaseapp.js');
 var Firebase = require('firebase');
 
 function WorkQueue(queueRef, processingCallback) {

@@ -1,3 +1,4 @@
+require('./firebaseapp.js');
 var Firebase = require('firebase'),
     Keen = require('keen.io'),
     WorkQueue = require('./workqueue-advanced.js'),

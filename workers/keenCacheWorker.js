@@ -1,3 +1,4 @@
+require('./firebaseapp.js');
 var Firebase = require('firebase'),
     Keen = require('keen.io'),
     cacheRef = new Firebase('https://sixfactor-95332.firebaseio.com/keen/cache'),

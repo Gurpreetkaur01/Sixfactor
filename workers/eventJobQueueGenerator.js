@@ -1,3 +1,5 @@
+// Initialize Firebase
+require('./firebaseapp.js');
 var Firebase = require('firebase'),
     workItems = new Firebase('https://sixfactor-95332.firebaseio.com/keen/event-job-queue'),
     firstNames = [
